@@ -11,5 +11,6 @@ Aplikacioni i mundeson perdoruesit qe :
 --- Te shfaqe abonentet te cileve u mbaron abonimi ne daten e sotme
 --- Te kerkoje abonente ne baze te emrit ose ambiemrit .
 
+Ne directorine videoDemo gjeni nje video demonstrim .
 Per te provuar aplikacionin ndryshoni te dhenat e konfigurimit ne /aplication.properties
 HENRI KACADEJ
