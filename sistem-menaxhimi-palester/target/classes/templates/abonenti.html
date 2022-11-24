@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Henri Kacadej Gym</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/abonentet}">Sistem Menaxhimi Palestre</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/abonentet}">Abonentet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/abonime_qe_perfundojne}">Abonimet qe Mbarojne Sot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/abonent/new}" >Shto Abonent</a>
+        </li>
+      </ul>
+      <form class="d-flex"  th:action="@{/abonentet/kerko}">
+        <input th:name="searchString" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+
+  <table class="table table-striped" th:object="${abonenti}">
+
+    <tbody>
+    <tr>
+      <th scope="row">Emri</th>
+      <td>
+        <span th:utext="*{firstName}"></span>
+      </td>
+      </tr>
+    <tr>
+      <th scope="row">Mbiemri</th>
+      <td><span th:utext="*{lastName}"></span></td>
+    </tr>
+    <tr>
+      <th scope="row">Mosha</th>
+      <td><span th:utext="*{mosha}"></span></td>
+    </tr>
+    <tr>
+      <th scope="row">Pesha</th>
+      <td><span th:utext="*{pesha}"></span></td>
+    </tr>
+<tr>
+    <th scope="row">Email</th>
+      <td><span th:utext="*{email}"></span></td>
+</tr>
+    <tr>
+      <th scope="row">Data e fillimit</th>
+      <td><span th:utext="*{dataEFillimit}"></span></td>
+    </tr>
+    <tr>
+      <th scope="row">Afati i Abonimit</th>
+      <td><span th:utext="*{dataEPerfundimit}"></span></td>
+    </tr>
+    </tbody>
+  </table>
+  <div th:object="${abonenti}">
+    <div class="d-grid gap-2">
+
+      <a th:href="@{/abonent/rinovo/{id} (id=${abonenti.id})}" class="btn btn-success">Rinovo Abonimin</a>
+      <a  th:href="@{/abonenti/edit/{id} (id=${abonenti.id})}" class="btn btn-primary">Edit Abonentin</a>
+      <a  th:href="@{/abonent/fshij/{id} (id=${abonenti.id})}" class="btn btn-danger">Fshij Abonentin</a>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

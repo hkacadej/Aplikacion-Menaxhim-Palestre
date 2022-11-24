@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Henri Kacadej Gym</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{/abonentet}">Sistem Menaxhimi Palestre</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/abonentet}">Abonentet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/abonime_qe_perfundojne}">Abonimet qe Mbarojne Sot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/abonent/new}" >Shto Abonent</a>
+
+        </li>
+      </ul>
+      <form class="d-flex"  th:action="@{/abonentet/kerko}">
+        <input th:name="searchString" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class="text-center">Perditeso Abonentin</h1>
+      <div class="card-body">
+        <form th:action="@{/edit/{id} (id=${abonent.id}) }" th:object="${abonent}" method="POST">
+          <div class="form-group">
+            <label>Emri</label>
+            <input
+                    name="firstName"
+                    placeholder="Jep Emrin"
+                    th:field="*{firstName}"
+                    class="form-control"
+                    type="text"
+            />
+            <label>Mbiemri</label>
+            <input
+                    name="lastName"
+                    placeholder="Jep Mbiemrin"
+                    th:field="*{lastName}"
+                    class="form-control"
+                    type="text"
+            />
+            <label>Email</label>
+            <input
+                    name="email;"
+                    placeholder="Jep Email"
+                    th:field="*{email}"
+                    class="form-control"
+                    type="text"
+            />
+            <label>Mosha</label>
+            <input
+                    name="mosha;"
+                    placeholder="Jep Moshen"
+                    th:field="*{mosha}"
+                    class="form-control"
+                    type="number"
+            />
+            <label>Pesha</label>
+            <input
+                    name="pesha;"
+                    placeholder="Jep Peshen(kg)"
+                    th:field="*{pesha}"
+                    class="form-control"
+                    type="text"
+            />
+            <label>Gjinia</label>
+            <input
+                    name="Gjinia;"
+                    placeholder="Gjinia"
+                    th:field="*{gjinia}"
+                    class="form-control"
+                    type="text"
+            />
+
+
+          </div>
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
